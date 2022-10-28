@@ -82,3 +82,12 @@ document.querySelectorAll('.custom_select').forEach(el => {
 
     fillSelectItems()
 })
+
+function toggleMenu() {
+    let st = elem('nav').style.display
+    if (st == 'none') {
+        elem('nav').style.display = 'block'
+    } else {
+        elem('nav').style.display = 'none'
+    }
+}

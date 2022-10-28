@@ -18,6 +18,18 @@
             {{ form.amount }}
             <button>Добавить</button>
         </form>
+        <div class="transactions">
+            <h3>Траты</h3>
+            {% for i in transactions %}
+            <div class="transaction">
+                <span class="icon">
+                    <span class="material-icons-round">shopping_cart</span>
+                </span>
+                <div class="name"><span>{{ i.name }}</span><span
+                        class="transaction-date">{{ i.datetime }}</span></div>
+                <div class="sum">{{ i.amount }}Р</div>
+            </div>
+            {% endfor %}
     </div>
 {% endblock %}
 {% block scripts %}

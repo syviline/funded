@@ -32,12 +32,14 @@ nav {
     max-width: 300px;
     flex: 1;
     background-color: hsl(249, 20%, 20.6%);
+    z-index: 999;
 }
 
 main {
     height: 100vh;
     flex: 4;
     background: radial-gradient(at top left, rgb(69, 64, 96), rgb(0, 0, 0));
+    overflow: auto;
 }
 
 nav .logo {
@@ -103,7 +105,8 @@ nav .menu a .a_label {
 }
 
 .main_split .main_right {
-
+    display: flex;
+    justify-content: center;
 }
 
 .bank_card {
@@ -149,7 +152,7 @@ nav .menu a .a_label {
 
 .main_block {
     background-color: hsl(249, 20%, 20%);
-    width: 100%;
+    max-width: 90vw;
     min-height: 200px;
     margin-top: 20px;
     border-radius: 10px;
@@ -197,6 +200,10 @@ nav .menu a .a_label {
 .transactions_canvas {
     width: 100%;
     max-height: 300px;
+}
+
+.transaction {
+    color: #FFF;
 }
 
 input, textarea {
@@ -249,4 +256,46 @@ input, textarea {
 
 .custom_select .select_items .option_item:hover {
     background-color: #DDD;
+}
+
+.burger_menu {
+    display: none;
+}
+
+@media (max-width: 1300px) {
+    .main_split {
+        flex-direction: column;
+        height: unset;
+    }
+}
+
+@media (max-width: 900px) {
+    nav {
+        flex: unset;
+        position: absolute;
+        display: none;
+    }
+
+    nav.shown {
+        display: block;
+    }
+
+    main {
+        flex: unset;
+        width: 100%;
+    }
+
+    .burger_menu {
+        display: block;
+    }
+}
+
+@media (max-width: 620px) {
+    canvas .transactions_canvas {
+        max-height: 150px;
+    }
+
+    canvas .month_transaction_canvas {
+        max-height: 150px;
+    }
 }

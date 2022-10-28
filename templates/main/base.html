@@ -20,6 +20,9 @@
 <body>
 <div class="content">
     <nav>
+        <div class="container burger_menu">
+            <span class="material-icons-round" onclick="toggleMenu()">close</span>
+            </div>
         <h1 class="logo">FundControl</h1>
         <div class="user">
             <span class="material-icons-round">account_circle</span>
@@ -31,6 +34,9 @@
         </div>
     </nav>
     <main>
+        <div class="container burger_menu">
+        <span class="material-icons-round" onclick="toggleMenu()">menu</span>
+        </div>
         {% block main %}
         {% endblock %}
     </main>
