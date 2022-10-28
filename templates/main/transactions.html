@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block main %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="custom_select" data-placeholder="Поиск по предметам">
+                <select name="type" id="subjects_dropdown">
+                    <option value="all" selected>Все предметы</option>
+                    {% for i in transaction_types %}
+                        <option value="{{ i.id }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <label for="name">Название</label>
+            {{ form.name }}
+            <label for="amount">Сумма</label>
+            {{ form.amount }}
+            <button>Добавить</button>
+        </form>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        currentPage('#add_transaction_page')
+    </script>
+{% endblock %}
