@@ -7,3 +7,4 @@ class AddTransactionForm(forms.ModelForm):
     class Meta:
         model = Transaction
         fields = ['type', 'name', 'amount']
+
