@@ -85,9 +85,26 @@ document.querySelectorAll('.custom_select').forEach(el => {
 
 function toggleMenu() {
     let st = elem('nav').style.display
-    if (st == 'none') {
+    if (st == 'none' || !st) {
         elem('nav').style.display = 'block'
     } else {
         elem('nav').style.display = 'none'
     }
+}
+document.addEventListener('keydown', ev => {
+    if (ev.key == 'Enter') {
+        elem('.tohide').style.visibility = 'visible';
+        elem('.tohide2').style.visibility = 'visible';
+        elem('.buddy_input').value = '';
+    }
+})
+
+let buddy = false;
+
+function toggleBuddyCloud() {
+    if (!buddy)
+        elem('.buddy_cloud').style.display = 'block';
+    else
+        elem('.buddy_cloud').style.display = 'none';
+    buddy = !buddy;
 }

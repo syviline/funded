@@ -19,7 +19,7 @@ class ChartData:
 
 @login_required
 def index(request):
-    return render(request, 'main/main.html')
+    return render(request, 'main/main.html', {'chartCircle': circle_data(), 'chartMonth': month_transactions()})
 
 
 @login_required
@@ -36,8 +36,7 @@ def transactions(request):
     transactions = Transaction.objects.filter(user=request.user)
 
     return render(request, 'main/transactions.html',
-                  {'form': form, 'transaction_types': trantypes, 'transactions': transactions,
-                   'chartCircle': circle_data(), 'chartMonth': month_transactions()})
+                  {'form': form, 'transaction_types': trantypes, 'transactions': transactions})
 
 
 def circle_data():
@@ -70,14 +69,20 @@ def month_transactions():
               "Ноябрь",
               "Декабрь", ]
     tran_month = {}
-    for i in range(3):
+    for i in range(10):
         dt = datetime.now() - timedelta(days=30 * i)
         for typ in TransactionType.objects.filter(user__isnull=True):
             trans = Transaction.objects.filter(type=typ, datetime__month=dt.month).all()
             for tran in trans:
+                print('MONTH: ' + str(dt.month))
+                print(tran.id)
                 tran_month.setdefault(dt.month, 0)
                 tran_month[dt.month] += tran.amount
-    data = {"labels": [months[i] for i in tran_month.keys()],
+    data = {"labels": [months[i - 1] for i in tran_month.keys()],
             "data": list(tran_month.values())}
 
     return ChartData(data["labels"], data["data"])
+
+
+def parent(request):
+    return render(request, 'main/parent.html', {'chartCircle': circle_data(), 'chartMonth': month_transactions()})

@@ -27,7 +27,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 20px;
     height: 100vh;
     max-width: 300px;
     flex: 1;
@@ -262,6 +262,33 @@ input, textarea {
     display: none;
 }
 
+.buddy {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.buddy img {
+    width: 120px;
+    cursor: pointer;
+}
+
+.buddy_cloud {
+    position: absolute;
+    padding: 10px;
+    width: 250px;
+    height: 200px;
+    background-color: #FFF;
+    border-radius: 20px;
+    bottom: 100px;
+    right: 50px;
+}
+
+.buddy_cloud input {
+    width: 229px;
+    margin-top: 65px;
+}
+
 @media (max-width: 1300px) {
     .main_split {
         flex-direction: column;
@@ -297,5 +324,20 @@ input, textarea {
 
     canvas .month_transaction_canvas {
         max-height: 150px;
+    }
+}
+
+@media (max-width: 430px) {
+    .main_split .main_right {
+        display: block;
+    }
+
+    .bank_card {
+        transform: scale(0.6);
+        transform-origin: left top;
+    }
+
+    .main_block.transactions {
+        margin-top: -70px;
     }
 }

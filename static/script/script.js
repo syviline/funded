@@ -9,8 +9,12 @@ const transactionsChart = new Chart(transactionsCtx, {
 //            [300, 50, 100],
             backgroundColor: [
                 'rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 205, 86)',
+                'rgb(75, 192, 192)',
                 'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(153, 102, 255)',
+                'rgb(201, 203, 207)'
             ],
             hoverOffset: 4,
         }]
@@ -20,10 +24,10 @@ const transactionsChart = new Chart(transactionsCtx, {
 const monthTransactionsCanvas = document.querySelector('.month_transactions_canvas').getContext('2d')
 const monthTransactions = new Chart(monthTransactionsCanvas, {
     type: 'bar', data: {
-        labels: ['Январь', 'Февраль', 'Март', 'Апрель'],
+        labels: barLabels,
         datasets: [{
             label: 'Траты в месяц',
-            data: [48000, 28000, 17000, 50000],
+            data: barData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(255, 159, 64, 0.2)',
@@ -42,7 +46,9 @@ const monthTransactions = new Chart(monthTransactionsCanvas, {
                 'rgb(153, 102, 255)',
                 'rgb(201, 203, 207)'
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            maintainAspectRatio: false,
+            responsive: true,
         }]
     },
     options: {

@@ -26,9 +26,14 @@
         <h1 class="logo">FundControl</h1>
         <div class="user">
             <span class="material-icons-round">account_circle</span>
-            <span class="nav_name">Oleg Dmitriev</span>
+            <span class="nav_name">Баранова Яна</span>
         </div>
         <div class="menu">
+            <a href="{% url 'main:index' %}"><span class="a_label">Родительский контроль</span></a>
+            <a href="{% url 'main:index' %}"><div class="a_label" style="
+                text-align: center;
+                width: 100%;
+            ">Лимит: 200Р</div></a><br><br>
             <a href="{% url 'main:index' %}" id="main_page"><span class="material-icons-outlined">account_tree</span><span class="a_label">Главная</span></a>
             <a href="{% url 'main:transactions' %}" id="add_transaction_page"><span class="material-icons-outlined">add</span><span class="a_label">Траты</span></a>
         </div>
