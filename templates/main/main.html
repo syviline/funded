@@ -64,6 +64,10 @@
     </div>
 {% endblock %}
 {% block scripts %}
+<script>
+    var CircleLabels = {{ chartCircle.labels }}
+    var CircleData = {{ chartCircle.data }}
+</script>
 <script src="{% static 'script/script.js' %}"></script>
     <script>
         currentPage('#main_page')

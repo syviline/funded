@@ -1,10 +1,12 @@
 const transactionsCtx = document.querySelector('.transactions_canvas').getContext('2d')
 const transactionsChart = new Chart(transactionsCtx, {
     type: 'doughnut', data: {
-        labels: ['Магазины', 'Бары', 'Еще что-то'],
+        labels: CircleLabels,
+//        ['Магазины', 'Бары', 'Еще что-то'],
         datasets: [{
             label: 'My First Dataset',
-            data: [300, 50, 100],
+            data: CircleData,
+//            [300, 50, 100],
             backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(54, 162, 235)',
